@@ -25,3 +25,18 @@ Una vez que el servidor está en ejecución, puedes conectarte a él usando la h
 Opción 1: Ejecutar redis-cli desde el Contenedor Docker
 Si no tienes redis-cli instalado localmente, puedes ejecutarlo directamente desde el contenedor Docker que acabas de crear:
 
+Bash
+
+docker exec -it redis redis-cli
+Opción 2: Ejecutar redis-cli desde el Host Local
+Si tienes redis-cli instalado en tu sistema local, puedes conectarte directamente al puerto expuesto:
+
+Bash
+
+redis-cli -h 127.0.0.1 -p 6379
+🛠️ Usar un Archivo de Configuración Local (redis.conf)
+Para iniciar Redis con tu propio archivo de configuración local, tienes dos métodos principales.
+
+1. Crear un Dockerfile Personalizado
+Puedes construir tu propia imagen de Docker que agregue el archivo redis.conf y lo use al iniciar el servidor.
+
