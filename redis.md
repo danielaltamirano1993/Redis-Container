@@ -52,3 +52,12 @@ Puedes montar tu directorio de configuración local en el contenedor usando la o
 
 Asegúrate de que /myredis/conf/ sea un directorio local que contenga tu archivo redis.conf.
 
+Bash
+
+docker run -d \
+  -v /myredis/conf:/usr/local/etc/redis \
+  --name myredis \
+  redis \
+  redis-server /usr/local/etc/redis/redis.conf
+⚠️ Nota Importante:
+El directorio local mapeado debe ser escribible. Redis podría necesitar crear o reescribir archivos de configuración.
