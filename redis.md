@@ -40,3 +40,15 @@ Para iniciar Redis con tu propio archivo de configuración local, tienes dos mé
 1. Crear un Dockerfile Personalizado
 Puedes construir tu propia imagen de Docker que agregue el archivo redis.conf y lo use al iniciar el servidor.
 
+Dockerfile:
+
+Dockerfile
+
+FROM redis
+COPY redis.conf /usr/local/etc/redis/redis.conf
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+2. Montar un Volumen en docker run
+Puedes montar tu directorio de configuración local en el contenedor usando la opción -v de docker run.
+
+Asegúrate de que /myredis/conf/ sea un directorio local que contenga tu archivo redis.conf.
+
